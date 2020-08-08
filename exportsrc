@@ -1,0 +1,19 @@
+# //   / /
+#   //____          ___      ___      __    __  ___  ___
+#  / ____ \\ / /  //   ) ) //   ) ) //  ) )  / /   ((   ) )
+# //       \/ /  //___/ / //   / / //       / /     \ \
+#//____/ / / /\ //       ((___/ / //       / /   //   ) )
+#!/bin/sh
+export PATH=$PATH:~/.scripts
+export EDITOR='/usr/bin/Nvim'
+export VISUAL='/usr/bin/Nvim'
+#Requres Most but most People will use less
+export PAGER='/usr/bin/most'
+export DOC='~/Documents/'
+export PDFVIEW='/usr/bin/zathura'
+export BROWSER='/usr/bin/surf'
+export BROWSERCLI='/usr/bin/w3m'
+export PLAYER='/usr/bin/mpv'
+export EBOOKER='/usr/bin/zathura'
+export COMICER='/usr/bin/mcomix'
+

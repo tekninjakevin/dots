@@ -1,0 +1,735 @@
+
+############################################################################
+#    :::    :::       :::::::::::    :::     :::::::: :::::::::  ::::::::
+#  :+: :+:  :+:           :+:      :+: :+:  :+:    :+::+:    :+::+:    :+:
+# +:+   +:+ +:+           +:+     +:+   +:+ +:+       +:+    +:++:+
+#+#++:++#++:+#+           +#+    +#++:++#++:+#++:++#+++#++:++#: +#+
+#+#+     +#++#+           +#+    +#+     +#+       +#++#+    +#++#+
+##+#     #+##+#           #+#    #+#     #+##+#    #+##+#    #+##+#    #+#
+####     ###########################     ### ######## ###    ### ########
+############################################################################
+# Aliasrc Version 5.0
+# To use Source form Bashrc or Zshrc Example source ~/.alaisrc
+# Author: Kevin Tangreen Aka TekNinja78
+# Email: Spidermankevin78@gmail.com
+# Last Update: July 14th 2020
+# License: © 2019 WTFPL - http://www.wtfpl.net/
+############################################################################
+##########################ALIAS#############################################
+#!/usr/bin/zsh
+#=============Common Options for Common Caomands=============={{{
+alias rm='rm -Ivr'
+alias cp='cp -aivr'
+alias mv='mv -iv'
+alias du='du -h'
+alias df='df -Th  --total'
+alias mkdir='mkdir -v -p'
+alias rmdir='rmdir -v'
+alias ln='ln -v -i'
+alias free="free -h"
+alias chmod='chmod -c'
+alias chown='chown -c'
+alias grep='grep --color=auto --exclude-dir={.git,.svn}'
+alias egrep='egrep --color=auto --exclude-dir={.git,.svn}'
+alias diff='diff --color=auto'
+alias inxi='inxi -Fxzc2'			#See System info
+alias gitu='git add . && git commit && git push'
+#=============================================================}}}
+#==============LS Aliases====================================={{{
+#use exa instead ls
+alias ls='ls --color=always --group-directories-first'
+alias ll="ls -lF"				# List all Files in long format.
+alias la="ls -alF" 				#long format hidden allso
+alias lh="ls -a"			#show hidden files and diractores
+alias lsd="ls -lF | grep '^d'" 			# List only directories
+alias lx='ls -lxb'				# Sort file by extinsion
+alias lk='ls -ls'				# Sort By Size
+alias lc='ls -lc'				# Sort by Change Time
+alias lu='ls -lu'				# Sort by access time
+alias lr='ls -lR| more'				# Recursive ls
+alias lm='ls -al |most'				# Ls + most
+#=============================================================}}}
+#=============Shortcuts======================================={{{
+alias comics='~/Comic_books/'
+alias schems='/usr/share/glib-2.0/schemas/'
+alias pics='cd ~/Pictures'
+alias torrents='cd ~/Torrents'
+alias videos='cd ~/Videos'
+alias walls='cd ~/Pictures/Wallpaper'
+alias roms='cd /media/DataFiles/Roms'
+alias docs='/usr/share/doc/'
+alias notes='cd ~/Notes/'
+alias music='cd ~/Music'
+alias movies='cd ~/Movies/'
+alias projects='cd ~/projects'
+alias Vynil='scim $DOC/Spreed_Sheets/MusicCollection.sc'
+alias CCSHEET='scim $DOC/Spreed_Sheets/Comic_Book_Collection.sc'
+alias spreedsheets='cd $DOC/Spreed_Sheets'
+alias wiki='nvim ~/vimwiki/index.wiki'
+#=============================================================}}}
+#=============Personal Commands==============================={{{
+#exit Terminal
+alias q="exit"
+#Editor Command Requares Neovim or use Editor of you choice
+alias nvim="Nvim"
+alias edit="Nvim"
+alias e='Nvim'
+alias sedit="sudo Nvim"
+#Start ranger fm Short for FileManager Requires Ranger
+alias fm="ranger"
+alias sfm="sudo ranger"
+#Requires rifle part of Ranger or use xdg-open
+alias open='rifle'
+#New Empty
+alias new='touch'
+alias playCD='mpv /dev/sr0'
+#Super User Short Cut
+alias SS='sudo'
+# What the fuck
+alias wtf='dmesg'
+# Make hstr less typing Requires hstr
+alias hh='hstr'
+#NewsBoat Shortcut Requires news boat
+alias news='NewsBoat'
+#Requires espeak
+alias say="espeak"
+#Kill All Applacations
+alias ka="killall"
+#make a new dirctory
+alias mkd='mkdir'
+
+#Add item to tado listing Requires Taskwarrior
+alias ta='task add'
+alias tl='task list'
+function td() {task "$1" done}
+#Remind Shortcuts Requires remind
+alias 2w='remind -c+2 -w100 ~/.remind'
+alias er='edit ~/.remind'
+alias 1m='remind -c -w100 ~/.remind'
+alias rl='remind -s ~/.remind'
+
+
+#pacman Commands
+# It's Like Never Having to say your sorry
+alias pacman='sudo pacman'
+alias upgrade='sudo pacman -Syyu'
+alias pinst='sudo pacman -S'
+#=============================================================}}}
+#==============Language aliases==============================={{{
+alias rb='ruby'
+alias py='python'
+alias py2='Python2'
+alias ipy='ipython'
+alias jj="java jar-"
+#using offical Java installed in /opt
+alias java="/opt/jre-10.0.2/bin/java"
+
+#=============================================================}}}
+#==============Zsh Suffix Alias==============================={{{
+#
+#open file with default program base on extension
+#Example: 'alias -s avi=mplayer' makes 'file.avi' execute 'mplayer file.avi'
+alias -s {avi,flv,mkv,mp4,mpeg,mpg,ogv,wmv}=$PLAYER
+alias -s {flac,mp3,ogg,wav}=$PLAYER
+alias -s {gif,GIF,jpeg,JPEG,jpg,JPG,png,PNG}=$IMAGEVIEWER
+alias -s {djvu,pdf,ps}=$PDFVIEW
+alias -s txt=$EDITOR
+alias -s {md,markdown}=$EDITOR
+alias -s epub=$EBOOKER
+alias -s {cbr,cbz}=$COMICER
+alias -s {exe,com,bat}=$DOSSER
+# might conflict with emacs org mode
+alias -s {at,ch,com,de,net,org}=$BROWSER
+alias -s {html,htm}=$BROWSERCLI
+# archive extractor
+alias -s ace="atool l"
+alias -s rar="unrar l"
+alias -s {tar,bz2,gz,xz}="tar tvf"	#tar.bz2,tar.gz,tar.xz
+alias -s zip="unzip -l"
+alias -s sc=scim
+#=============================================================}}}
+#==============cd .. Aliases=================================={{{
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+alias .......='cd ../../../../../..'
+alias ........='cd ../../../../../../..'
+#Moving Around The Stack
+alias -- -='cd -'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+#=============================================================}}}
+#==============Rip Disc to Files=============================={{{
+#rip Audio cd to flac
+alias ripCD='abcde -d /dev/sr0  -o flac'
+#Rip Dvd to m4v Format
+function ripDVD() { HandBrakeCLI -s "1,2,3" -a "1,2,3" --main-feature  -i /dev/sr0 -o ~/Videos/${1}.m4v ;}
+#RipISO
+function ripISO() {cdrecord dev=/dev/sr0 "$1"}
+
+#=============================================================}}}
+#=============Global Aliases=================================={{{
+#
+    # Automatically Expanding Global Aliases (Space key to expand)
+    # references: http://blog.patshead.com/2012/11/automatically-expaning-zsh-global-aliases---simplified.html
+    globalias() {
+      if [[ $LBUFFER =~ '[A-Z0-9]+$' ]]; then
+        zle _expand_alias
+        zle expand-word
+      fi
+      zle self-insert
+    }
+    zle -N globalias
+    bindkey " " globalias                 # space key to expand globalalias
+    # bindkey "^ " magic-space            # control-space to bypass completion
+    bindkey "^[[Z" magic-space            # shift-tab to bypass completion
+    bindkey -M isearch " " magic-space    # normal space during searches
+
+    alias -g ls='exa --group-directories-first'
+    # http://www.zzapper.co.uk/zshtips.html
+    alias -g ND='*(/om[1])' 	      # newest directory
+    alias -g NF='*(.om[1])' 	      # newest file
+    #alias -g NE='2>|/dev/null'
+    alias -g NO='&>|/dev/null'
+    alias -g P='2>&1 | $PAGER'
+    alias -g VV='| nvim -R -'
+    alias -g L='| less'
+    alias -g M='| most'
+    alias -g C='| wc -l'
+    alias -g H='| head'
+    alias -g T='| tail'
+    alias -g G='| grep'
+    alias -g LL="2>&1 | less"
+    alias -g CA="2>&1 | cat -A"
+    alias -g NE="2> /dev/null"
+    alias -g NUL="> /dev/null 2>&1"
+
+           alias -g CA="2>&1 | cat -A"
+           alias -g C='| wc -l'
+           alias -g D="DISPLAY=:0.0"
+           alias -g DN=/dev/null
+           alias -g ED="export DISPLAY=:0.0"
+           alias -g EG='|& egrep'
+           alias -g EH='|& head'
+           alias -g EL='|& less'
+           alias -g ELS='|& less -S'
+           alias -g ETL='|& tail -20'
+           alias -g ET='|& tail'
+           alias -g F=' | fmt -'
+           alias -g G='| egrep'
+           alias -g H='| head'
+           alias -g HL='|& head -20'
+           alias -g Sk="*~(*.bz2|*.gz|*.tgz|*.zip|*.z)"
+           alias -g LL="2>&1 | less"
+           alias -g LS='| less -S'
+           alias -g MM='| most'
+           alias -g M='| more'
+           alias -g NE="2> /dev/null"
+           alias -g NS='| sort -n'
+           alias -g NUL="> /dev/null 2>&1"
+           alias -g PIPE='|'
+           alias -g R=' > /c/aaa/tee.txt '
+           alias -g RNS='| sort -nr'
+           alias -g S='| sort'
+           alias -g TL='| tail -20'
+           alias -g T='| tail'
+           alias -g US='| sort -u'
+           alias -g VM=/var/log/messages
+           alias -g X0G='| xargs -0 egrep'
+           alias -g X0='| xargs -0'
+           alias -g XG='| xargs egrep'
+           alias -g X='| xargs'
+#==========================================================}}}
+##############################FUNCTIONS#########################################
+#==============Cli Spell Checking=========================={{{
+#Check a single word or a file Requarse
+function check-word() { echo "$1" | aspell -a ;}
+function ckw() { echo "$1" | aspell -a ;}
+function check-file() { aspell check "$1" ;}
+#==========================================================}}}
+#==============Mount_Img==================================={{{
+
+mount-img() {
+  if [ $# -lt 1 ]; then
+    echo -e "mount image to access files"
+    echo -e "\nUsage: $0 <img_file>"
+    echo -e "\nExample: $0 foo.img"
+    return 1
+  fi
+
+  mkdir -p "/tmp/$1"
+  sudo mount "$PWD/$1" "/tmp/$1"
+
+  # if mount was sucessful then cd and ls the mountpoint
+  if [ $? -eq 0 ]; then
+    cd "/tmp/$1" && ls
+  else
+    return 1
+  fi
+}
+
+
+unmount-img() {
+  if [ $# -lt 1 ]
+  then
+    echo -e "unmount ISO filesystem images (iso,nrg,bin,mdf,img)"
+    echo -e "\nUsage:\n$0 <mount_point|disc_image>"
+    echo -e "\nExample:\n$0 disc_image.iso"
+    echo -e "$0 disc_image.iso disc_image2.bin"
+    echo -e "$0 mount_point1 mount_point2"
+    echo -e "cd /tmp && $0 mount_point"
+    echo -e "cd /tmp && $0 *.iso"
+    return 1
+  fi
+
+  myArray=( "$@" )
+  for arg in "${myArray[@]}"; do
+    fusermount -u "$arg"
+  done
+}
+
+
+#==========================================================}}}
+#==============Fasd========================================{{{
+#------------------------------------------------------
+  eval "$(fasd --init auto)"    # get fasd working, initialization code
+
+  # different fasd listing
+   alias a='fasd -a'               # any
+   alias S='fasd -si'              # show / search / select
+   alias d='fasd -d'               # directory
+   alias f='fasd -f'               # file
+   alias sd='fasd -sid'            # interactive directory selection
+   alias sf='fasd -sif'            # interactive file selection
+   alias z='fasd_cd -d'            # cd, same functionality as j in autojump
+   alias zz='fasd_cd -d -i'        # cd with interactive selection
+
+  # open with external programs
+  alias m="f -e $PLAYER"                # open with video player
+  alias o="a -e $OPENER"                # open any file
+#==========================================================}}}
+#==============Format USB Drive============================{{{
+formatmatusb-ext() {
+  if [ $# -lt 3 ]; then
+    echo -e "format and create a partition that fills up the whole device"
+    echo -e "\nUsage: $0 <filesystem:ext2|ext3|ext4> <device_label> <device_name>"
+    echo -e "Example: $0 ext2 MY_USB sdx"
+    echo -e "         $0 ext3 MY_USB sdx"
+    echo -e "         $0 ext4 MY_USB sdx"
+    return 1
+  fi
+  FSTYPE="$1"
+  DEVICE_LABEL="$2"
+  DEVICE_NAME="$3"
+  echo "${Yellow}>>>Checking if device is mounted ${Color_Off}"
+    MOUNT_STATUS=$(mount | grep /dev/"$DEVICE_NAME" | wc -l)
+    if [ "$MOUNT_STATUS" -ne 0 ]
+    then
+      lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep "$DEVICE_NAME"
+      echo "${Red}>>>/dev/$DEVICE_NAME is mounted. You have to unmount the device and all of its partitions then try again ${Color_Off}"
+      return 1
+    fi
+  echo "${Yellow}>>>Please double check the device you are about to FORMAT ${Color_Off}"
+    lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep --color -E "$DEVICE_NAME|$"
+  echo -n "${Red}>>>WARNING: You are about to FORMAT a device at /dev/$DEVICE_NAME. Do you want to continue? [y/n] ${Color_Off}"
+    read REPLY
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      echo "${Green}>>>You chose to continue ${Color_Off}"
+    else
+      return 1
+    fi
+  echo "${Red}>>>Delete any existing partition then create a new single partition ${Color_Off}"
+    echo -e "d\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\no\nn\np\n1\n\n\nw" | sudo fdisk /dev/"$DEVICE_NAME"
+    # delete partiton x8 using d\n\n
+    # d    delete a partition
+    #      default, partition
+    # o    create a new empty DOS partition table
+    # n    add a new partition
+    # p    print the partition table
+    # 1    partition number 1
+    #      default, start immediately after preceding partition
+    #      default, extend partition to end of disk
+    # w    write table to disk and exit
+  echo "${Red}>>>Formatting the device ${Color_Off}"
+    echo -e "y\n" | sudo mkfs."$FSTYPE" -L "$DEVICE_LABEL" /dev/"$DEVICE_NAME"1
+  echo "${Yellow}>>>Changing permission of the filesystem ${Color_Off}"
+    mkdir -p -v /tmp/testmount
+    sudo mount /dev/"$DEVICE_NAME"1 /tmp/testmount
+    sudo chmod -R 777 /tmp/testmount
+  echo "${Green}>>>Change EXT filesystem 5% reserved space to 0% (increase storage space) ${Color_Off}"
+    MOUNTED_TESTMOUNT=$(df | awk '/testmount/ {print $1}')
+    sudo tune2fs -m 0 "$MOUNTED_TESTMOUNT"
+    sudo tune2fs -l "$MOUNTED_TESTMOUNT" | grep --color=auto 'Reserved block count'
+  echo "${Red}>>>Unmounting and cleanup ${Color_Off}"
+    sudo umount /tmp/testmount
+    rmdir -v /tmp/testmount
+}
+
+formatusb-gamecube() {
+  if [ $# -lt 2 ]; then
+    echo -e "format device to work with wii & gamecube games using FAT32 with 32KB cluster"
+    echo -e "FAT32 label max is 11 character and is all uppercase"
+    echo -e "512 bytes (per sector) * 64 sectors (per cluster) = 32KB clusters (32768 Bytes)"
+    echo -e "more info: https://gist.github.com/joshenders/4376942"
+    echo -e "\nUsage: $0 <label> <device>"
+    echo -e "Example: $0 MY_USB sdx"
+    return 1
+  fi
+  # fat32 likes the labels to be in uppercase
+  DEVICE_LABEL=$(echo "$1" | tr '[:lower:]' '[:upper:]')
+  DEVICE_NAME="$2"
+  echo "${Yellow}>>>Checking if device is mounted ${Color_Off}"
+    MOUNT_STATUS=$(mount | grep /dev/"$DEVICE_NAME" | wc -l)
+    if [ "$MOUNT_STATUS" -ne 0 ]
+    then
+      lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep "$DEVICE_NAME"
+      echo "${Red}>>>/dev/$DEVICE_NAME is mounted. You have to unmount the device and all of its partitions then try again ${Color_Off}"
+      return 1
+    fi
+  echo "${Yellow}>>>Please double check the device you are about to FORMAT ${Color_Off}"
+    lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep --color -E "$2|$"
+  echo -n "${Red}>>>WARNING: You are about to FORMAT a device at /dev/$DEVICE_NAME. Do you want to continue? [y/n] ${Color_Off}"
+    read REPLY
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      echo "${Green}>>>You chose to continue ${Color_Off}"
+    else
+      return 1
+    fi
+  echo "${Red}>>>Delete any existing partition then create a new single partition ${Color_Off}"
+    echo -e "d\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\no\nn\np\n1\n\n\nt\nb\nw" | sudo fdisk /dev/"$DEVICE_NAME"
+    # delete partiton x8 using d\n\n
+    # d    delete a partition
+    #      default, partition
+    # o    create a new empty DOS partition table
+    # n    add a new partition
+    # p    print the partition table
+    # 1    partition number 1
+    #      default, start immediately after preceding partition
+    #      default, extend partition to end of disk
+    # t    change a partition type (L to list all types)
+    # b    W95 FAT32
+    # w    write table to disk and exit
+  echo "${Red}>>>Formatting the device ${Color_Off}"
+    sudo mkfs.fat -S 512 -s 64 -F 32 -n "$DEVICE_LABEL" -I /dev/"$DEVICE_NAME"1
+  echo "${Red}>>>Changing permission of the filesystem ${Color_Off}"
+    mkdir -p -v /tmp/testmount
+    sudo mount /dev/"$DEVICE_NAME"1 /tmp/testmount
+    sudo chmod -R 777 /tmp/testmount
+    sudo umount /tmp/testmount
+    rmdir -v /tmp/testmount
+}
+
+formatusb-exfat() {
+  if [ $# -lt 2 ]; then
+    echo -e "format and create a partition that fills up the whole device"
+    echo -e "exFAT label max is 15 character and is all uppercase"
+    echo -e "\nUsage: $0 <label> <device>"
+    echo -e "Example: $0 MY_USB sdx"
+    return 1
+  fi
+  # exFat likes the labels to be in uppercase
+  DEVICE_LABEL=$(echo "$1" | tr '[:lower:]' '[:upper:]')
+  DEVICE_NAME="$2"
+  echo "${Yellow}>>>Checking if device is mounted ${Color_Off}"
+    MOUNT_STATUS=$(mount | grep /dev/"$DEVICE_NAME" | wc -l)
+    if [ "$MOUNT_STATUS" -ne 0 ]
+    then
+      lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep "$DEVICE_NAME"
+      echo "${Red}>>>/dev/$DEVICE_NAME is mounted. You have to unmount the device and all of its partitions then try again ${Color_Off}"
+      return 1
+    fi
+  echo "${Yellow}>>>Please double check the device you are about to FORMAT ${Color_Off}"
+    lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep --color -E "$2|$"
+  echo -n "${Red}>>>WARNING: You are about to FORMAT a device at /dev/$DEVICE_NAME. Do you want to continue? [y/n] ${Color_Off}"
+    read REPLY
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      echo "${Green}>>>You chose to continue ${Color_Off}"
+    else
+      return 1
+    fi
+  echo "${Red}>>>Delete any existing partition then create a new single partition ${Color_Off}"
+    echo -e "d\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\no\nn\np\n1\n\n\nt\n7\nw" | sudo fdisk /dev/"$DEVICE_NAME"
+    # delete partiton x8 using d\n\n
+    # d    delete a partition
+    #      default, partition
+    # o    create a new empty DOS partition table
+    # n    add a new partition
+    # p    print the partition table
+    # 1    partition number 1
+    #      default, start immediately after preceding partition
+    #      default, extend partition to end of disk
+    # t    change a partition type (L to list all types)
+    # 7    HPFS/NTFS/exFAT
+    # w    write table to disk and exit
+  echo "${Red}>>>Formatting the device ${Color_Off}"
+    sudo mkfs.exfat -n "$DEVICE_LABEL" /dev/"$DEVICE_NAME"1
+  echo "${Red}>>>Changing permission of the filesystem ${Color_Off}"
+    mkdir -p -v /tmp/testmount
+    sudo mount /dev/"$DEVICE_NAME"1 /tmp/testmount
+    sudo chmod -R 777 /tmp/testmount
+    sudo umount /tmp/testmount
+    rmdir -v /tmp/testmount
+}
+
+formatusb-fat32() {
+  if [ $# -lt 2 ]; then
+    echo -e "format and create a partition that fills up the whole device"
+    echo -e "FAT32 label max is 11 character and is all uppercase"
+    echo -e "\nUsage: $0 <label> <device>"
+    echo -e "Example: $0 MY_USB sdx"
+    return 1
+  fi
+  # fat32 likes the labels to be in uppercase
+  DEVICE_LABEL=$(echo "$1" | tr '[:lower:]' '[:upper:]')
+  DEVICE_NAME="$2"
+  echo "${Yellow}>>>Checking if device is mounted ${Color_Off}"
+    MOUNT_STATUS=$(mount | grep /dev/"$DEVICE_NAME" | wc -l)
+    if [ "$MOUNT_STATUS" -ne 0 ]
+    then
+      lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep "$DEVICE_NAME"
+      echo "${Red}>>>/dev/$DEVICE_NAME is mounted. You have to unmount the device and all of its partitions then try again ${Color_Off}"
+      return 1
+    fi
+  echo "${Yellow}>>>Please double check the device you are about to FORMAT ${Color_Off}"
+    lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep --color -E "$2|$"
+  echo -n "${Red}>>>WARNING: You are about to FORMAT a device at /dev/$DEVICE_NAME. Do you want to continue? [y/n] ${Color_Off}"
+    read REPLY
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      echo "${Green}>>>You chose to continue ${Color_Off}"
+    else
+      return 1
+    fi
+  echo "${Red}>>>Delete any existing partition then create a new single partition ${Color_Off}"
+    echo -e "d\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\no\nn\np\n1\n\n\nt\nb\nw" | sudo fdisk /dev/"$DEVICE_NAME"
+    # delete partiton x8 using d\n\n
+    # d    delete a partition
+    #      default, partition
+    # o    create a new empty DOS partition table
+    # n    add a new partition
+    # p    print the partition table
+    # 1    partition number 1
+    #      default, start immediately after preceding partition
+    #      default, extend partition to end of disk
+    # t    change a partition type (L to list all types)
+    # b    W95 FAT32
+    # w    write table to disk and exit
+  echo "${Red}>>>Formatting the device ${Color_Off}"
+    sudo mkfs.fat -F 32 -n "$DEVICE_LABEL" -I /dev/"$DEVICE_NAME"1
+  echo "${Red}>>>Changing permission of the filesystem ${Color_Off}"
+    mkdir -p -v /tmp/testmount
+    sudo mount /dev/"$DEVICE_NAME"1 /tmp/testmount
+    sudo chmod -R 777 /tmp/testmount
+    sudo umount /tmp/testmount
+    rmdir -v /tmp/testmount
+}
+
+formatusb-ntfs() {
+  if [ $# -lt 2 ]; then
+    echo -e "format and create a partition that fills up the whole device"
+    echo -e "\nUsage: $0 <label> <device>"
+    echo -e "Example: $0 MY_USB sdx"
+    return 1
+  fi
+  DEVICE_LABEL="$1"
+  DEVICE_NAME="$2"
+  echo "${Yellow}>>>Checking if device is mounted ${Color_Off}"
+    MOUNT_STATUS=$(mount | grep /dev/"$DEVICE_NAME" | wc -l)
+    if [ "$MOUNT_STATUS" -ne 0 ]
+    then
+      lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep "$DEVICE_NAME"
+      echo "${Red}>>>/dev/$DEVICE_NAME is mounted. You have to unmount the device and all of its partitions then try again ${Color_Off}"
+      return 1
+    fi
+  echo "${Yellow}>>>Please double check the device you are about to FORMAT ${Color_Off}"
+    lsblk -o "NAME,SIZE,FSTYPE,TYPE,LABEL,MOUNTPOINT,UUID" | grep --color -E "$DEVICE_NAME|$"
+  echo -n "${Red}>>>WARNING: You are about to FORMAT a device at /dev/$DEVICE_NAME. Do you want to continue? [y/n] ${Color_Off}"
+    read REPLY
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      echo "${Green}>>>You chose to continue ${Color_Off}"
+    else
+      return 1
+    fi
+  echo "${Red}>>>Delete any existing partition then create a new single partition ${Color_Off}"
+    echo -e "d\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\nd\n\no\nn\np\n1\n\n\nt\n7\nw" | sudo fdisk /dev/"$DEVICE_NAME"
+    # delete partiton x8 using d\n\n
+    # d    delete a partition
+    #      default, partition
+    # o    create a new empty DOS partition table
+    # n    add a new partition
+    # p    print the partition table
+    # 1    partition number 1
+    #      default, start immediately after preceding partition
+    #      default, extend partition to end of disk
+    # t    change a partition type (L to list all types)
+    # 7    HPFS/NTFS/exFAT
+    # w    write table to disk and exit
+  echo "${Red}>>>Formatting the device ${Color_Off}"
+    sudo mkfs.ntfs -f -L "$DEVICE_LABEL" /dev/"$DEVICE_NAME"1
+  echo "${Red}>>>Changing permission of the filesystem ${Color_Off}"
+    mkdir -p -v /tmp/testmount
+    sudo mount /dev/"$DEVICE_NAME"1 /tmp/testmount
+    sudo chmod -R 777 /tmp/testmount
+    sudo umount /tmp/testmount
+    rmdir -v /tmp/testmount
+}
+
+#==========================================================}}}
+#==============More Functions=============================={{{
+function paclist() {
+  # Source: https://bbs.archlinux.org/viewtopic.php?id=93683
+  LC_ALL=C pacman -Qei $(pacman -Qu | cut -d " " -f 1) | \
+    awk 'BEGIN {FS=":"} /^Name/{printf("\033[1;36m%s\033[1;37m", $2)} /^Description/{print $2}'
+}
+
+function auto-ls () {
+	emulate -L zsh;
+# explicit sexy ls'ing as aliases arent honored in here.
+	hash gls >/dev/null 2>&1 && CLICOLOR_FORCE=1 gls -aFh --color --group-directories-first || ls
+}
+chpwd_functions=( auto-ls $chpwd_functions )
+
+
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+# call nvim help page from shell prompt
+    function vimhelp { nvim +":h $1" +'wincmd o' +'nnoremap q :q!<CR>' ;}
+
+# type read me to read the read regardless of exstinstion or case
+    function readme() {
+	for readme in {readme,README}.{md,MD,markdown,txt,TXT,mkd}; do
+	    if [[ -f "$readme" ]]; then
+		less $readme
+		    fi
+		    done
+    }
+# Compile and execute a C source on the fly
+    csource() {
+	[[ $1 ]]    || { echo "Missing operand" >&2; return 1; }
+	[[ -r $1 ]] || { printf "File %s does not exist or is not readable\n" "$1" >&2; return 1; }
+	local output_path=${TMPDIR:-/tmp}/${1##*/};
+	gcc "$1" -o "$output_path" && "$output_path";
+	rm "$output_path";
+	return 0;
+    }
+# uses Pv to have a progress bar
+    pvcp() {
+	SOURCE=$1
+	    if [ -d $2 ]
+		then
+		    DESTINATION=$2/`basename $SOURCE`
+	    else
+		DESTINATION=$2
+		    fi
+		    pv ${SOURCE} | > ${DESTINATION}
+    }
+
+    cpv() {
+	rsync -pogbr -hhh --backup-dir=/tmp/rsync -e /dev/null --progress "$@"
+    }
+
+    Calc() {
+	if which python2 &>/dev/null; then
+	    python2 -ic "from __future__ import division; from math import *; from random import *"
+		elif which python3 &>/dev/null; then
+		python3 -ic "from math import *; import cmath"
+		elif which bc &>/dev/null; then
+		bc -q -l
+	else
+	    echo "Requires python2, python3 or bc for calculator features"
+		fi
+    }
+    rezsh() {
+	local cache="$ZSH_CACHE_DIR"
+	    autoload -U compinit zrecompile
+	    compinit -i -d "$cache/zcomp-$HOST"
+
+	    for f in ~/.zshrc "$cache/zcomp-$HOST"; do
+		zrecompile -p $f && command rm -f $f.zwc.old
+		    done
+
+# Use $SHELL if available; remove leading dash if login shell
+		    [[ -n "$SHELL" ]] && exec ${SHELL#-} || exec zsh
+    }
+
+# Better find(1)
+    function ff() {
+	find . -iname "*${1:-}*"
+    }
+# show file access permission
+# http://unix.stackexchange.com/a/46921
+    filep() { stat --format '%a %n' "$@" ;}
+# display mime of file application/zip, application/x-tar
+    fileT() { file --mime-type -b "$@" ;}
+
+
+    fix-pman() {
+	sudo pacman "$@"  \
+	    --log /dev/null   \
+
+	    --force           \
+	    --nodeps          \
+	    --needed
+    }
+# Color Man pages
+    man() {
+	env LESS_TERMCAP_mb=$'\E[01;31m' \
+			    LESS_TERMCAP_md=$'\E[01;31m' \
+			    LESS_TERMCAP_me=$'\E[0m' \
+			    LESS_TERMCAP_se=$'\E[0m' \
+			    LESS_TERMCAP_so=$'\E[01;44;33m' \
+			    LESS_TERMCAP_ue=$'\E[0m' \
+			    LESS_TERMCAP_us=$'\E[01;32m' \
+			    man "$@"
+    }
+    bak() {
+	if [[ -e "$1" ]]; then
+	    echo "Found: $1"
+		mv "${1%.*}"{,.bak}
+	elif [[ -e "$1.bak" ]]; then
+	    echo "Found: $1.bak"
+	    mv "$1"{.bak,}
+	fi
+    }
+
+# DESCRIPTION
+#    Records sound from microphone and converts it to mp3
+    rec() {
+	local ts
+	    ts=`date +%s`
+	    arecord -f cd -t wav /tmp/$ts.wav
+	    ffmpeg -i /tmp/$ts.wav -codec:a libmp3lame -qscale:a 0 /tmp/$ts.mp3
+	    echo -n /tmp/$ts.mp3 | xclip
+    }
+
+
+#
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        /usr/bin/ranger "$@"
+    else
+        exit
+    fi
+}
+
+#==========================================================}}}
